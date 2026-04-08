@@ -279,9 +279,6 @@ cd your-repo-name
 # Install dependencies
 pip install pandas numpy matplotlib seaborn scikit-learn reportlab
 
-# Run Week 1 analysis
-python week1/clean_data.py
-python week1/insights_code.py
 
 # Run Week 2 notebook
 jupyter notebook week2/sales_product_dataset.ipynb
@@ -293,9 +290,8 @@ jupyter notebook week2/sales_product_dataset.ipynb
 
 | File | Description |
 |---|---|
-| `Week1_Report.pdf` | 6-section business report: data cleaning, EDA, 5 business questions, support ticket analysis, recommendations, data risks |
-| `GreenCart_Week2_Report.pdf` | 7-section business report following the full internship brief (max 1,500 words) |
-| `weekly_revenue_by_region.png` | Regional revenue line chart with rolling average and Q4 shading |
+| `Project_Report_Augustine_Cudjoe.pdf` | 7-section business report following the full internship brief (max 1,500 words) |
+
 
 ---
 
