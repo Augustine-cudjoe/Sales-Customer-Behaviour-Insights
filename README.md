@@ -66,17 +66,6 @@ Advanced Analytical Foundations: Implemented window functions (`PARTITION BY`), 
 
 ---
 
-## Project structure
-
-├──   project_file_week2/
-│   ├── sales_data.csv
-│   ├── product_info.csv
-│   ├── customer_info.csv
-│   ├── sales_product_dataset.ipynb # Full notebook (cleaning → viz → BQs)
-│   └── Project_Report_Augustine_Cudjoe.pdf  # Final PDF report
-│
-└── README.md
-
 
  What I did
 
