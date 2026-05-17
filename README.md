@@ -17,6 +17,7 @@ The analysis addresses questions that a real Data & Insights team would face ahe
 
 ---
 
+
 ## Datasets
 
 ### Week 2 — Sales & Customer Behaviour (Green Cart Ltd.)
@@ -29,14 +30,39 @@ The analysis addresses questions that a real Data & Insights team would face ahe
 
 ---
 
-## Tech stack
+
+## 🛠️ Technology Stack
+* **Database & Ingestion:** MySQL Workbench (SQL Audit, Joins, Window Functions)
+* **ETL & Analytics:** Python 3.9 (Pandas, NumPy, Scikit-learn)
+* **Visualization Engine:** Microsoft Power BI Desktop (Power Query, DAX Data Modeling)
+* **Executive Presentation:** Microsoft Word (Corporate Styling, Visual Typography)
 
 
-Python 3.12
-pandas · numpy · matplotlib · seaborn · scikit-learn (MinMaxScaler)
-reportlab (PDF generation) · python-docx (Word documents)
-MySQL · MySQL Workbench · Jupyter Notebook
+---
+## 🚀 Project Architecture & Workflow
 
+```text
+ ┌──────────────┐      ┌──────────────────────┐      ┌─────────────┐      ┌────────────────────────┐
+ │   RAW DATA   │ ───> │  SQL PRE-CLEAN AUDIT │ ───> │  PYTHON ETL │ ───> │ POWER BI DASHBOARD     │
+ │ 3 CSV Tables │      │ Integrity & Ingestion│      │ Engineering │      │ 4-Page Executive UI    │
+ └──────────────┘      └──────────────────────┘      └─────────────┘      └────────────────────────┘
+                                                                                      │
+                                                                                      ▼
+                                                                          ┌────────────────────────┐
+                                                                          │ 11-PAGE CORPORATE BRIEF│
+                                                                          │ Strategy & Next Steps  │
+                                                                          └────────────────────────┘
+```
+
+---
+
+## 🗄️ Phase 1: Pre-Cleaning Database Audit (SQL)
+Before building the cleaning pipelines, a robust diagnostic audit script (`green_cart_data_audit.sql`) was developed in MySQL to protect data lineage and identify structural faults at ingestion.
+
+Ingestion Guarding: Handled big data payload constraints (`max_allowed_packet`) and stripped hidden encoding characters (**Byte Order Mark `ï»¿`**) from primary keys.
+
+Integrity Error Interception: Caught a critical database truncation error causing a 17.4% row loss (521 missing transaction records). Restoring this data saved the project from an initial **56% understatement of total revenue.
+Advanced Analytical Foundations: Implemented window functions (`PARTITION BY`), 3-Day Rolling Moving Averages, and Common Table Expressions (CTEs) to establish localized pricing benchmarks and detect out-of-boundary transactional outliers.
 
 ---
 
@@ -54,7 +80,8 @@ MySQL · MySQL Workbench · Jupyter Notebook
 
  What I did
 
-### 1. Data cleaning
+## 🐍 Phase 2: Automated ETL & Feature Engineering (Python)
+Using `pandas` and `scikit-learn`, an automated pipeline was constructed to ingest, clean, and enrich the core data models.
 
 Each dataset was cleaned individually before merging. Issues found and resolved:
 
@@ -155,10 +182,6 @@ merged_df.groupby('loyalty_tier').agg(
 
 # Delivery delay rate by region and price band
 merged_df.groupby(['region_y', 'price_band'])['is_late'].agg(['mean', 'count'])
-
-
-
-
 ### 4. Visualisations
 
 Six charts produced with Matplotlib and Seaborn:
@@ -171,6 +194,16 @@ Six charts produced with Matplotlib and Seaborn:
 | 4 | Heatmap | Correlation between revenue, quantity, and discount |
 | 5 | Countplot | Orders by loyalty tier with region as hue |
 | 6 | Stacked bar | Delivery status breakdown by price band |
+
+## 📊 Phase 3: Interactive Visualizations & Data Modeling (Power BI)
+Developed a cohesive, 7-page interactive dashboard aligned strictly with Green Cart’s eco-friendly brand identity, utilizing a strict typographic hierarchy and accessibility guidelines.
+
+* **Page 1: Executive Revenue Summary:** High-level revenue trajectories mapped against an static **48K baseline marker**, monitoring seasonal growth velocities.
+* **Page 2: Regional Performance Matrix:** Geographic breakdown of order distribution volumes paired with regional operational performance.
+* **Page 3: Customer Intelligence & Loyalty Tiers:** Deep-dive demographic tracking examining spending habits and preferred transaction methods.
+* **Page 4: Operations & Supply Chain Risk:** Supply chain grid monitoring delivery health and mapping shipping bottlenecks.
+
+
 
 
 ### 5. Business questions answered
@@ -290,7 +323,7 @@ jupyter notebook week2/sales_product_dataset.ipynb
 
 | File | Description |
 |---|---|
-| `Project_Report_Augustine_Cudjoe.pdf` | 7-section business report following the full internship brief (max 1,500 words) |
+| `Project_Report_Augustine_Cudjoe.pdf` | 11-pages business report  |
 
 
 ---
